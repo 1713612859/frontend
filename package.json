@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/1713612859/frontend#readme",
   "devDependencies": {
+    "mockjs": "^1.1.0",
     "webpack": "^5.87.0",
     "webpack-cli": "^5.1.4"
   },
