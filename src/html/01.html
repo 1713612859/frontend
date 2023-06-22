@@ -16,12 +16,30 @@
 
 <body>
     <script>
-        var promise = new Promise((resove, reject) => {
-            console.log(resove);
-            console.log(reject);
-        });
+        // var promise = new Promise((resove, reject) => {
+        //     console.log(resove);
+        //     console.log(reject);
+        // });
 
-        console.log(promise);
+        // console.log(promise);
+
+        function add() {
+            let num = 100;
+            function a() {
+                console.log(num);
+                return num++
+            }
+            a()
+
+        }
+
+        let num = add()
+        console.log(num);
+        console.log(add());
+        console.log(add());
+        console.log(add());
+
+
     </script>
     <div class="contianer">contianer</div>
 </body>
