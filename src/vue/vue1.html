@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- vue3  -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <div id="app">
+        <span @change="spanChanged()">{{ message }}</span>
+        <button @click="changeMessage()">切换</button>
+        <ul style="display: inline-block;" v-for="(item,index) in numList" :key="index">
+            <li style="color: brown;">元素{{item}}---------索引{{index}}</li>
+        </ul>
+    </div>
+
+    <script>
+        const { createApp } = Vue
+
+        createApp({
+            /* 数据 */
+            data() {
+                return {
+                    message: true,
+                    numList: []
+                }
+            },
+            /* 页面加载时渲染  */
+            created() {
+                for (let i = 0; i < 10; i++) {
+                    this.numList.push(parseInt(Math.random() * i * 10))
+                }
+            },
+            /* vue的方法定义 */
+            methods: {
+                changeMessage() {
+                    console.log("message has changed");
+                    this.message = !this.message
+                },
+                spanChanged() {
+                    console.log("spanChanged");
+                }
+            }
+        }).mount('#app')/* mount 挂载到id=app的标签上 */
+    </script>
+</body>
+
+</html>
