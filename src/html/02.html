@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /**
+         * 闭包 容易造成内存泄漏,因为会一直存储在内存中
+         * @return void 
+         */
+        function bibao() {
+            let num = 0;
+            // return function () {
+            //     console.log(++num);
+            // }
+            return () => {
+                //console.log(++num);
+                return ++num
+            }
+        }
+
+        let r1 = bibao()
+        console.log(r1());
+        console.log(r1());
+        console.log(r1());
+
+
+
+        // function test() {
+        //     let a = 0;
+        //     return function (increment) {
+        //         a = a + increment;
+        //         console.log(a);
+        //     }
+        // }
+        // // 先获取这个内部函数
+        // var inner = test();
+
+        // //第一次调用内部函数
+        // inner(1);
+
+        // //第二次调用内部函数
+        // inner(1);
+
+        // //第三次调用内部函数
+        // inner(1);
+
+    </script>
+</body>
+
+</html>

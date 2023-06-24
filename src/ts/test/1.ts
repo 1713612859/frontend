@@ -18,3 +18,12 @@ function catName(params: Array<any>) {
 }
 
 catName([1, 5, 6, 9, 8, 3, 6])
+
+
+function bibao(): number {
+    return 100;
+}
+
+let res = bibao()
+
+console.log(res);
