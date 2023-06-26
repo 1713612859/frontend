@@ -1,3 +1,6 @@
+/**
+ * monent 日期格式化插件
+ */
 import moment from "moment";
 
 let parseStr = moment().format('YYYY-MM-DD')

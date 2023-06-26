@@ -1,3 +1,6 @@
+/**
+ * lodash js处理函数集合
+ */
 import _ from 'lodash'
 
 // .chunk: 返回一个包含拆分区块的新数组（注：相当于一个多维数组）。
