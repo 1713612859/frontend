@@ -27,3 +27,5 @@ function bibao(): number {
 let res = bibao()
 
 console.log(res);
+
+

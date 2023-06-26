@@ -8,6 +8,12 @@ let R = (function () {
     return array;
 })()
 
+let result = R.join("-");
+console.log('result', result);
+
+let result2 = result.split('-');
+console.log("result2", result2.map(item => Number(item)));
+
 
 console.log(R);
 // 数组求和
@@ -32,3 +38,5 @@ let res4 = R.includes(9);
 // 对数组的每个元素调用定义的回调函数，并返回包含结果的数组。
 let res5 = R.map(item => item * 2)
 console.log(res5);
+
+
