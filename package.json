@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "前端案例学习",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

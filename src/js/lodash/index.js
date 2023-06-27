@@ -14,3 +14,6 @@ console.log(_.concat(1, 53, undefined, 6, [[12], 555, undefined]));//[ 1, 53, un
 
 // .difference(array,[values])创建一个具有唯一array值的数组，每个值不包含在其他给定的数组中。
 console.log(_.difference([2, 3], [2, 3, 4]));
+
+// .isObject(any) 判断是否为Object 为真=true 为假 false 
+console.log(_.isObject(5));

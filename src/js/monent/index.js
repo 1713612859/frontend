@@ -10,3 +10,9 @@ console.log(parseStr);
 console.log(parseStr2);
 
 console.log(typeof parseStr);
+
+
+console.log(moment().format('2020-11-11'));
+
+
+console.log(moment().parseZone());
