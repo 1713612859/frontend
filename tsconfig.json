@@ -1,12 +1,15 @@
 {
     "compilerOptions": {
+       
+      "target": "es5" ,
         "module": "commonjs",
-        "target": "es5",
         "noImplicitAny": true,
         "outDir": "./dist",
-        "sourceMap": true
+        "sourceMap": true,
+    
     },
     "include": [
         "src/**/*"
     ],
+    
 }
