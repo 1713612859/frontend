@@ -11,6 +11,8 @@ interface User {
     age: number,
     location?: string
     phone?: string
+
+    say(): void
 }
 
 /**
@@ -28,7 +30,10 @@ function addUser(user: User) {
 
 const user: User = {
     name: 'zhangsan',
-    age: 18
+    age: 18,
+    say() {
+
+    },
 }
 
 let arr = addUser(user)
@@ -53,7 +58,19 @@ console.log(say3);
 
 console.log(typeof arr);
 
+/**
+ * 斐波拉契数列 1 1 2 3 5
+ * @param arr 
+ * @returns 
+ */
+function fibonacci(arr: number): any {
+    if (arr <= 1) {
+        return arr;
+    }
+    return fibonacci(arr - 2) + fibonacci(arr - 1);
+}
 
+console.log('fibonacci', fibonacci(20));
 
 
 

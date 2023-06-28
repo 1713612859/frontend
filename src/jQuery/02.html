@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery-3-demo2</title>
+
+</head>
+<script src="jquery-3.7.0.min.js"></script>
+<!-- <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script> -->
+
+<body>
+    <p>点击消失</p>
+    <input type="text" class="username">
+
+    <button>点击发送</button>
+    <button class="classBtn">获取属性</button><br>
+    <span>1111</span><br>
+    <span></span><br>
+    <button class="appendBtn">追加HTML内容</button>
+</body>
+<script>
+    /* page on load doing this func */
+    $(document).ready(function () {
+
+        console.log($('div').find('*'));
+
+        $('p:first').css('background-color', 'yellow')
+
+        $('button:first').click(function () {
+            // console.log($('p').val())
+            console.log($('p').text())
+            console.log($('p').html())
+        })
+
+        $('.classBtn').click(function () {
+            alert($('input').attr('type'))
+            alert($('input').attr('class'))
+        })
+
+        $('.appendBtn').click(function () {
+            // $('span:first').append('我在span里加了内容') // add Html content
+            $('span:first').remove() // remove Html element content
+
+            $('p:first').removeAttr('style')
+        })
+    });
+
+
+            // function selectList() {
+        //     $.ajax({
+        //         // url: 'http://127.0.0.1:8080/user',
+        //         url: 'http://127.0.0.1:8080/admin/selectList',
+        //         method: 'POST',
+        //         async: true,
+        //         data: {
+        //         }, success(res) {
+        //             if (res.code === 200) {
+        //                 let div = document.createElement('div')
+        //                 div.innerHTML = JSON.stringify(res.data)
+        //                 document.body.appendChild(div)
+        //                 setTimeout(() => {
+        //                     alert(`${res.msg}`)
+        //                 }, 500)
+        //             }
+        //         }, error(err) {
+        //             console.log(err);
+        //         }
+        //     })
+        // }
+        // $("p").click(function () {
+        //     $(this).hide();
+        // });
+
+        // $("button").click(selectList
+        //     // $.get("http://127.0.0.1:8080/hello?name=lisi", function (data, status) {
+        //     //     alert("Data: " + data + "\nStatus: " + status);
+        //     // });
+        // );
+
+
+    // // http://127.0.0.1:8080/hello?name=lisi
+    // $.ajax()
+
+
+
+    // var num = "178 109 109 336.5 143 512 240 61.71"
+    // let arr = num.split(" ")
+    // console.log(arr.reduce((pre, cur) => parseFloat(pre) + parseFloat(cur)));// 1689.21
+    // function sum(arr) {
+    //     return arr.reduce((pre, cur) => {
+    //         pre + cur
+    //     }, 0)
+    // }
+
+
+
+</script>
+
+
+
+
+</html>

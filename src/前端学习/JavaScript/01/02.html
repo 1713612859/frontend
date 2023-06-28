@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Canvas Demo</title>
+</head>
+
+<body>
+    <canvas id="canvas" width="500" height="500"></canvas>
+    <script>
+        const canvas = document.querySelector('#canvas');
+        const ctx = canvas.getContext('2d');
+        let isDrawing = false;
+        let startX, startY;
+        let shapes = [];
+
+        canvas.addEventListener('mousedown', e => {
+            isDrawing = true;
+            startX = e.offsetX;
+            startY = e.offsetY;
+        });
+
+        canvas.addEventListener('mousemove', e => {
+            if (!isDrawing) return;
+            const endX = e.offsetX;
+            const endY = e.offsetY;
+
+            // 清除之前绘制的矩形和虚影
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // 绘制前面所画的图形
+            shapes.forEach(shape => {
+                ctx.beginPath();
+                ctx.rect(shape.x, shape.y, shape.width, shape.height);
+                console.log(shape.x, shape.y, shape.width, shape.height);
+                ctx.fillStyle = 'red';
+                ctx.fill();
+            });
+
+            // 绘制新的矩形
+            ctx.beginPath();
+            ctx.rect(startX, startY, endX - startX, endY - startY);
+            ctx.stroke();
+        });
+
+        canvas.addEventListener('mouseup', e => {
+            isDrawing = false;
+            const endX = e.offsetX;
+            const endY = e.offsetY;
+
+            // 将当前的矩形保存到数组中
+            shapes.push({ x: startX, y: startY, width: endX - startX, height: endY - startY });
+        });
+    </script>
+</body>
+
+</html>
