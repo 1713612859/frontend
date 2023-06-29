@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Switch</title>
+</head>
+
+<body>
+    <script>
+        // var i = prompt('please input num')
+
+
+        console.log(parseInt('sdhasjh是的呢'));
+
+        function validate(param) {
+
+            if (parseInt(param) == NaN || parseInt(param) == undefined) {
+                alert('input 不合法');
+                return
+            }
+
+            switch (param) {
+                case 1:
+                    alert(param)
+                    break;
+
+                default:
+                    alert('defualt')
+                    break;
+            }
+        }
+
+       // validate(i)
+    </script>
+</body>
+
+</html>

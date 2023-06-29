@@ -5,9 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>jquery-3-demo1</title>
+    <!-- 引入 layui.css -->
+    <!-- 引入 layui.js -->
+
+    <link href="//unpkg.com/layui@2.8.8/dist/css/layui.css" rel="stylesheet">
 
 </head>
-<script src="jquery-3.7.0.min.js"></script>
+
+
 <script>
     $(document).ready(function () {
         function selectList() {
@@ -19,9 +24,15 @@
                 data: {
                 }, success(res) {
                     if (res.code === 200) {
-                        let div = document.createElement('div')
-                        div.innerHTML = JSON.stringify(res.data)
-                        document.body.appendChild(div)
+                        res.data.forEach((element, index) => {
+                            let li = document.createElement('p')
+                            $('p').append(index)
+                            console.log(index);
+                            console.log(element);
+
+                            document.body.appendChild(li)
+                        });
+
                         setTimeout(() => {
                             alert(`${res.msg}`)
                         }, 500)
@@ -56,11 +67,20 @@
     //     }, 0)
     // }
 
+    // Usage
+    layui.use(function () {
+        var layer = layui.layer;
+        // Welcome
+        layer.msg('Hello World', { icon: 6 });
+    });
 
 
 </script>
 
 <body>
+    <script src="jquery-3.7.0.min.js"></script>
+    <script src="//unpkg.com/layui@2.8.8/dist/layui.js" />
+
     <p>点击消失</p>
     <button>点击发送</button>
 </body>

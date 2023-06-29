@@ -20,16 +20,23 @@
             // }
             return () => {
                 //console.log(++num);
-                return ++num
+                ++num;
+                let span = document.createElement('h1')
+                span.innerHTML = num.toString()
+                document.body.appendChild(span)
+                return num
             }
         }
 
-        let r1 = bibao()
+        var r1 = bibao()
         console.log(r1());
         console.log(r1());
         console.log(r1());
 
 
+        function addBibao() {
+            r1()
+        }
 
         // function test() {
         //     let a = 0;
@@ -51,6 +58,9 @@
         // inner(1);
 
     </script>
+
+
+    <button onclick="addBibao()">调用闭包</button>
 </body>
 
 </html>

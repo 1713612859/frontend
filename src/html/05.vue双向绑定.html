@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+
+    <style>
+        #myInput {
+            width: 400px;
+            height: 50px;
+            font-size: 40px;
+            color: red;
+        }
+
+        #contain {
+            margin-top: 20px;
+            width: 400px;
+            height: 200px;
+            border: 1px solid salmon;
+        }
+    </style>
+</head>
+
+<body>
+    <input id="myInput" type="text" />
+    <div id="contain"></div>
+
+    <script>
+        // global var
+        var text;
+        window.data = {};
+        var oIn = document.getElementById("myInput");
+        var oDiv = document.getElementById("contain");
+
+        oIn.addEventListener("input", function (e) {
+            console.log(e);
+            text = e.target.value;
+            console.log(text);
+            window.data.value = text;
+        });
+        /**
+         *  Object.defineProperty(window.data, "value", {}
+         *  1. 对象
+         *  2. 对象.property
+         *  3. 属性的操作类型 例如 可读 可写 只读等 & getter setter方法
+         */
+        Object.defineProperty(window.data, "value", {
+            get() {
+                console.log(this);
+                return "";
+            },
+            // 当window.data中的value属性发生变化时  set自动更新新值
+            set(v) {
+                console.log(this);
+                oDiv.innerText = v;
+            },
+        });
+    </script>
+</body>
+
+</html>

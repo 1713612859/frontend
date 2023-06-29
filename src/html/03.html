@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Vue</title>
+</head>
+<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+
+<body>
+    <div id="app" :style="[background-color: color;]">
+        {{message}} <br />
+
+        {{count}}<br />
+
+
+        {{returnVal}}<br />
+
+        <button @click="addCount()">++</button>
+        <button @click="decCount()">--</button>
+    </div>
+</body>
+<script>
+    var VM = new Vue({
+        el: '#app',
+        data: {
+            message: 'Hello Vue!',
+            count: 0,
+            firstName: 'TOM',
+            lastName: 'SIMTH',
+            color: 'red'
+        },
+        methods: {
+            addCount() {
+                this.count++
+            },
+            decCount() {
+                this.count--
+                this.CHANGE_COUNT(this.count, this.count)
+            }
+        },
+        computed: {
+            returnVal() {
+                return this.firstName + ':' + this.lastName
+            }
+        },
+        watch: {
+            // 如果 `question` 发生改变，这个函数就会运行
+            CHANGE_COUNT: function (newVlaue, oldVlaue) {
+                console.log(newVlaue);
+                console.log(oldVlaue);
+            }
+        },
+    });
+
+</script>
+
+</html>

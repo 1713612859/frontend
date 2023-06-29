@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Quick Start - Layui</title>
+    <link href="//cdn.staticfile.org/layui/2.8.8/css/layui.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- HTML Content -->
+    <script src="//cdn.staticfile.org/layui/2.8.8/layui.js"></script>
+    <script src="jquery-3.7.0.min.js"></script>
+
+    <!-- <script>
+        $(document).ready(function () {
+            $('#add').click(function () {
+                alert(1)
+            })
+        })
+    </script> -->
+    <script>
+        // // Usage
+        // layui.use(function () {
+        //     var layer = layui.layer;
+        //     // Welcome
+        //     layer.msg('Hello World', { icon: 6 });
+
+        //     $.ajax({
+        //         url: 'http://127.0.0.1:8080/admin/selectList',
+        //         method: 'POST',
+        //         async: true,
+        //         success(res) {
+        //             console.log(res);
+        //         }
+        //     })
+
+
+        // });
+
+        layui.use(['table'], function () {
+
+            var table = layui.table;
+            //            var playerName;
+            //            if(item != undefined) {
+            //                playerName=item;
+            //            }
+            table.render({
+                /* table 容器的选择器或 DOM */
+                elem: '#test'
+                , url: 'http://127.0.0.1:8080/admin/selectList'
+                , method: 'post'
+                // , where: { tourId: tourIds, rounds: rounds, playerName: item }
+                , cellMinWidth: 80,
+                toolbar: '#templet-demo-theads-tool',
+                //全局定义常规单元格的最小宽度，layui 2.2.1 新增
+                parseData: function (res) {
+                    console.log(res);
+                    return {
+                        "code": 0, //解析接口状态
+                        "msg": res.msg, //解析提示文本
+                        "data": res.data
+                    };
+                },
+                cols: [[
+                    { field: 'id', title: 'id', edit: 'text' },
+                    { field: 'name', title: 'name', edit: 'text' },
+                    { field: 'gender', title: 'gender', edit: 'text' },
+                    { field: 'password', title: 'password', dit: 'text' },
+                    { field: 'email', title: 'email', edit: 'text' },
+                    { field: 'telephone', title: 'telephone', edit: 'text' },
+                    { field: 'address', title: 'address', edit: 'text' },
+                    { field: 'portraitPath', title: 'portraitPath', edit: 'text' },
+                    { title: '操作', toolbar: '#templet-demo-theads-tool', fixed: 'right', align: 'center', minWidth: 300 }
+
+                ]],
+            });
+
+            // 工具栏事件
+            table.on('toolbar(test)', function (obj) {
+                var id = obj.config.id;
+                console.log(obj);
+                var checkStatus = table.checkStatus(id);
+                var othis = lay(this);
+                switch (obj.event) {
+                    case 'getCheckData':
+                        var data = checkStatus.data;
+                        layer.alert(layui.util.escape(JSON.stringify(data)));
+                        break;
+                    case 'getData':
+                        var getData = table.getData(id);
+                        console.log(getData);
+                        layer.alert(layui.util.escape(JSON.stringify(getData)));
+                        break;
+                    case 'LAYTABLE_TIPS':
+                        layer.alert('自定义工具栏图标按钮');
+                        break;
+                };
+            });
+        });
+    </script>
+    <script type="text/html" id="templet-demo-theads-tool">
+            <div class="layui-btn-group">
+                <button type="button" class="layui-btn" lay-event="getCheckData">增加</button>
+                <button type="button" class="layui-btn ">编辑</button>
+                <button type="button" class="layui-btn">删除</button>
+            </div>
+    </script>
+
+    <table class="layui-hide" id="test" lay-filter='test3'></table>
+
+
+</body>
+
+</html>

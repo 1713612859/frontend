@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object.defineProperty</title>
+</head>
+
+<body>
+
+    <script>
+        var user = {
+            name: "lisi",
+        }
+        /*
+    1.configurable:表示能否通过delete删除属性从而重新定义属性，能否修改属性的特性，或者能否把属性修改为访问器属性，默认值为false。
+    2.enumerable：表示能否通过for in循环访问属性，默认值为false
+    3.writable：表示能否修改属性的值。默认值为false。
+    4.value：包含这个属性的数据值。默认值为undefined。 */
+
+        // Object.defineProperty(user, "name", { writable: true, enumerable: false })
+
+        // console.log(user);
+        // user.name = 'zhangsan'
+        // //  delete user.name
+
+        // console.log(user);
+
+
+        var book = {
+            _year: 2023,
+            edition: 1
+        }
+
+        Object.defineProperty(book, "year", {
+            get() {
+                return this._year
+            },
+            set(newYear) {
+                if (newYear > 2004) {
+                    this._year = newYear;
+                    this.edition += 1
+                }
+            }
+        })
+
+        book.year = 2005;
+        book.year = 2006;
+        book.year = 2007;
+        console.log(book.edition);//2
+        console.log(book._year);//2005
+
+    </script>
+</body>
+
+</html>
