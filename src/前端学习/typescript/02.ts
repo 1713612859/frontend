@@ -19,9 +19,14 @@ class Student {
 }
 
 const stu = new Student();
+const stu2 = new Student();
+
+console.log(stu === stu);
+
 stu.name = 'stuname'
 stu.age = 15
 stu.stuNo = 'ZK001'
 
 stu.study(stu.name)
 console.log(stu);
+console.log(stu2);
