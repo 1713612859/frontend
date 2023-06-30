@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>06.html</title>
+</head>
+
+<style>
+    #inputVal,
+    #app {
+        padding: 20px;
+        border: 2px solid rebeccapurple;
+    }
+
+    #app {
+
+        width: 400px;
+        height: 200px;
+        margin-top: 50px;
+    }
+</style>
+
+<body>
+
+    <div style="margin:100px;">
+        <input id="inputVal" type="text" placeholder="请输入"><br>
+
+
+        <div id="app">
+
+        </div>
+    </div>
+
+    <script>
+        window.data = {}
+
+        var text;
+
+        let input = document.getElementById("inputVal")
+        // console.log(input);
+
+        let app = document.getElementById("app")
+        // console.log(app);
+
+        input.addEventListener('input', (e) => {
+            text = e.target.value
+            window.data.value = text
+            app.innerHTML = text;
+        })
+
+        Object.defineProperty(window.data, "value", {
+            set(v) {
+                // console.log(text);
+                console.log(v);
+                app.innerHTML = v;
+            },
+            get() {
+                // console.log('return', window.data.value);
+                return "";
+            }
+        })
+    </script>
+</body>
+
+</html>
