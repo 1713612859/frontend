@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>09 promise</title>
+</head>
+
+<body>
+    <script>
+        /**
+         * (resolve, reject)
+         *  resolve 可以理解为异步函数运行成功的标注函数,而 reject 【 译为 拒绝 】可以理解为异步函数运行失败的标注函数。
+         */
+        let promise = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                // resolve('reslove is success!')
+                reject('reject is failed')
+            }, 1000);
+        }).then(res => {
+            // resolve 成功的回调函数
+            console.log(res); //reslove is success 
+        }).catch(err => {
+            // reject() // reject报错或异常的回调
+            console.log(err);
+        })
+    </script>
+
+</body>
+
+</html>
