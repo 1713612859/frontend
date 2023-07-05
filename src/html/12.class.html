@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>12.class.html</title>
+</head>
+
+<body>
+    <script>
+        class A {
+            name;
+            age;
+            constructor(name, age) {
+                this.name = name;
+                this.age = age;
+            }
+
+            sayHi() {
+                console.log(`${this.name}+${this.age}`);
+            }
+        }
+
+        class B extends A {
+
+        }
+
+        var a = new A('lisi', 18)
+        var b = new B();
+
+        console.log(a._prototype);
+        console.log(b);
+    </script>
+
+    CREATE TABLE `tb_user` (
+    `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '⾃增主键',
+    `name` varchar(255) NOT NULL DEFAULT '' COMMENT '姓名',
+    `age` int(11) NOT NULL DEFAULT '-1' COMMENT '年龄',
+    PRIMARY KEY (`id`),
+    INDEX `index_name` (`name`) USING BTREE
+    ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT='⽤户信息表';
+    CREATE TABLE `tb_user_contact` (
+    `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '⾃增主键',
+    `user_id` bigint(20)
+    NOT NULL DEFAULT '-1' COMMENT '⽤户id',
+    `contact_type` tinyint(4) NOT NULL DEFAULT '0' COMMENT '联系⽅式类型 0:未
+    知 1:⼿机 2:邮箱 3:微信 4:QQ',
+    `contact_value` varchar(255) NOT NULL DEFAULT '' COMMENT '联系⽅式信息',
+    `create_time` DATETIME NOT NULL DEFAULT '1970-01-01 00:00:00' COMMENT
+    '
+    创建时间',
+    `update_time` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CUR
+    RENT_TIMESTAMP COMMENT '更新时间',
+    PRIMARY KEY (`id`),
+    INDEX `index_user_id` (`user_id`) USING BTREE,
+    INDEX `index_contact_value` (`contact_value`) USING BTREE
+    ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT='联系⽅式信息
+    表';
+    CREATE TABLE `tb_message` (
+    `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '⾃增主键',
+    `msg_id` varchar(255) NOT NULL DEFAULT '' COMMENT '消息ID',
+    `status` int(11) NOT NULL DEFAULT '-1' COMMENT '消息状态，-1-待发送，0-发送
+    中，1-发送失败 2-已发送',
+    `content` varchar(255)
+    NOT NULL DEFAULT '' COMMENT '消息内容',
+    `deleted` tinyint(4) NOT NULL DEFAULT '0' COMMENT '是否删除 0-未删除 1-已
+    删除',
+    `create_time` DATETIME NOT NULL DEFAULT '1970-01-01 00:00:00' COMMENT
+    '
+    创建时间',
+    `update_time` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CUR
+    RENT_TIMESTAMP COMMENT '更新时间',
+    PRIMARY KEY (`id`),
+    INDEX `index_msg_id` (`msg_id`) USING BTREE,
+    INDEX `index_create_time` (`create_time`) USING BTREE
+    ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT='消息表';
+    CREATE TABLE `tb_message_detail` (
+    `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '⾃增主键',
+    `msg_id` varchar(255) NOT NULL DEFAULT '' COMMENT '消息ID',
+    `detail_content` varchar(255)
+    NOT NULL DEFAULT '' COMMENT '详细消息内容',
+    `create_time` DATETIME NOT NULL DEFAULT '1970-01-01 00:00:00' COMMENT
+    '创建时间',
+    `update_time` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CUR
+    RENT_TIMESTAMP COMMENT '更新时间',
+    PRIMARY KEY (`id`),
+    INDEX `index_msg_id` (`msg_id`) USING BTREE
+    ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT='消息表详情表'
+    ;
+</body>
+
+</html>
