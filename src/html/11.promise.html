@@ -23,12 +23,15 @@
                 resolve(1)
             }, 1000);
         });
+
+        // Promise.race() 会走第一个promise对象,然后决定promise状态是resolve 还是 reject
         var p2 = new Promise(function (resolve, reject) {
             setTimeout(() => {
-                reject("reject")
-            }, 500);
+                reject("false")
+            }, 5000);
         });
         let p = Promise.all([p1, p2]);
+        // let p = Promise.race([p1, p2]);
         try {
             p.then(function (res) {
                 console.log(res);

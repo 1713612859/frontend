@@ -9,6 +9,11 @@
 
 <body>
     <script>
+
+        (function () {
+            document.write(JSON.stringify({ name: 'username1', age: '18', gender: '男' }))
+        })()
+
         /**
          * 闭包 容易造成内存泄漏,因为会一直存储在内存中
          * @return void 
