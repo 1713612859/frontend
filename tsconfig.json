@@ -7,9 +7,12 @@
         "outDir": "./dist",
         "sourceMap": true,
     
+"strictNullChecks": true
+
+        
     },
     "include": [
         "src/**/*"
-    ],
+    ]
     
 }

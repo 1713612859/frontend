@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+
+        const obj = { name: 'zhangsan', age: 18, date: new Date() }
+
+        const a = structuredClone(obj)
+
+        console.log(a);
+        console.log(a === obj);
+
+
+        function resolveAfter2Seconds(x) {
+            return new Promise(resolve => {
+                setTimeout(() => {
+                    resolve(x);
+                }, 2000);
+            });
+        }
+
+        async function f1() {
+            let x = await resolveAfter2Seconds(10);
+            console.log(x); // 10
+        }
+
+        f1();
+    </script>
+</body>
+
+</html>

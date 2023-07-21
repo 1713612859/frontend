@@ -43,6 +43,11 @@ let [first, ...args] = test();
 console.log(first, args);
 
 
+/**
+ *
+ *
+ * @return {*} 
+ */
 function returnObject() {
     return {
         username: '张三',

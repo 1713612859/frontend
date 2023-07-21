@@ -8,3 +8,9 @@ export function sayHello(age) {
     return age;
 }
 
+
+const obj = { name: 'zhangsan', age: 18, date: new Date() }
+
+const a = structuredClone(obj)
+
+console.log(a);

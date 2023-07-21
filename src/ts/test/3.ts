@@ -13,5 +13,10 @@ function show(params: Animal) {
 
 }
 
-show({ name: 'zhangsan', age: 18, date: new Date() })
+// show({ name: 'zhangsan', age: 18, date: new Date() })
 
+const obj = { name: 'zhangsan', age: 18, date: new Date() }
+
+const a = structuredClone(obj)
+
+console.log(a);

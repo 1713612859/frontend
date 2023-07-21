@@ -4,6 +4,7 @@
  * test foreach
  */
 
+/** @type {*} */
 let R = (function () {
     let array = [];
     for (let i = 0; i < 3; i++) {
