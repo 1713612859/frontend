@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebSocket</title>
+</head>
+
+<body>
+
+
+    <script>
+        console.log(document.location.host);
+
+        let websocket = null;
+        let host = document.location.host;
+        //判断当前浏览器是否支持WebSocket
+        if ('WebSocket' in window) {
+            //连接WebSocket节点
+            websocket = new WebSocket("ws://" + host + "/webSocket");
+        } else {
+            alert('浏览器不支持webSocket');
+        }
+    </script>
+</body>
+
+</html>
