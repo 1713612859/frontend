@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文件 base64</title>
+</head>
+
+<style>
+    img {
+        width: 40;
+        height: 40;
+    }
+</style>
+
+<body>
+    <input type="file" name="" id="inp">
+
+    <div style="width: 40; height: 40;">
+        <img src="" alt="" id="perview" srcset="">
+    </div>
+
+    <button onclick="handleDownloadQrIMg(result)">点击</button>
+
+    <a href="">aaaaaaaaaaa</a>
+    <script>
+        let inp = document.getElementById('inp')
+        let perview = document.querySelector('#perview')
+
+        let a = document.querySelector('a')
+        var result;
+        var filename;
+        inp.onchange = function () {
+            const file = inp.files[0]
+            const reader = new FileReader()
+            reader.readAsDataURL(file) // 将图片进行转码
+            reader.onload = (e) => { // 转码成功后的回调
+                perview.src = e.target.result
+
+
+                result = e.target.result
+                console.log(file);
+                console.log(e);
+
+                filename = file.name
+
+
+            }
+        }
+
+
+
+        //imageBase64是后台传回来的base64数据
+        function handleDownloadQrIMg(imageBase64) {
+            // 这里是获取到的图片base64编码,这里只是个例子哈，要自行编码图片替换这里才能测试看到效果
+            const imgUrl = `${imageBase64}`;
+            // 如果浏览器支持msSaveOrOpenBlob方法（也就是使用IE浏览器的时候），那么调用该方法去下载图片
+            if (window.navigator.msSaveOrOpenBlob) {
+                const bstr = atob(imgUrl.split(',')[1]);
+                let n = bstr.length;
+                const u8arr = new Uint8Array(n);
+                while (n--) {
+                    u8arr[n] = bstr.charCodeAt(n);
+                }
+                const blob = new Blob([u8arr]);
+                window.navigator.msSaveOrOpenBlob(blob, 'filename.jpg');
+            } else {
+                // 这里就按照chrome等新版浏览器来处理
+                const a = document.createElement('a');
+                document.body.appendChild(a)
+                a.href = imgUrl;
+                a.innerHTML = 'xiazaizhong'
+                a.setAttribute('download', filename);
+                a.click();
+            }
+
+            return imgUrl
+        }
+
+
+    </script>
+</body>
+
+</html>

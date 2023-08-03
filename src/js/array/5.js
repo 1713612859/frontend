@@ -1,3 +1,5 @@
+// "use strict";
+// "use strict";
 const arr = [1, 2, 3, 4, 5, 6, 7]
 
 console.log();
@@ -27,3 +29,23 @@ console.log(sortStudent);
 const arrs = [3, 1, 4, 1, 5, 9];
 const compareFn = (a, b) => (a > b ? -1 : 0);
 console.log(arrs.sort(compareFn));
+
+
+
+const obj = {
+    name: '张三',
+    age: 15
+}
+// 对象冻结  意味着对象不可变
+let res = Object.freeze(obj)
+
+obj.name = "xxxx"
+
+console.log(obj.name);
+
+
+// 浅克隆
+// true 
+console.log(res === obj);
+
+res.name = 'xxx'

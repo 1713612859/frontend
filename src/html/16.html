@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>16.html</title>
+</head>
+
+<body>
+    <script>
+        console.log(111);
+
+        const val = ""
+        const val2 = undefined
+        console.log(typeof val);
+        console.log(typeof val2);
+
+        console.log(null === val);
+        console.log(null === val2);
+
+        console.log(undefined == val);
+        console.log(undefined == val2);
+
+        if (typeof val == "string") {
+            console.log(`${val} is string`);
+        } else {
+            console.log(`${val} is other type`);
+        }
+    </script>
+</body>
+
+</html>
