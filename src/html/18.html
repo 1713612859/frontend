@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/vuesax/dist/vuesax.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+</head>
+
+<body>
+    <div id="app">
+        <div>
+            <vs-row vs-justify="center">
+                <vs-col type="flex" vs-justify="center" vs-align="center" vs-w="3">
+                    <vs-card>
+                        <div slot="header">
+                            <h3>
+                                Hello world !
+                            </h3>
+                        </div>
+                        <div>
+                            <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                incididunt
+                                ut
+                                labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                                ullamco
+                                laboris
+                                nisi ut aliquip ex ea commodo consequat.</span>
+                        </div>
+                        <div slot="footer">
+                            <vs-row vs-justify="flex-end">
+                                <vs-button type="gradient" color="danger"></vs-button>
+                                <vs-button color="primary"></vs-button>
+                                <vs-button color="rgb(230,230,230)" color-text="rgb(50,50,50)"
+                                    icon="settings"></vs-button>
+                            </vs-row>
+                        </div>
+                    </vs-card>
+                </vs-col>
+            </vs-row>
+        </div>
+        <div>
+            <vs-button color="primary" icon="setting" type="relief">setting</vs-button>
+            <vs-button color="success" type="relief">Success</vs-button>
+            <vs-button color="danger" type="filled">Danger</vs-button>
+            <vs-button color="warning" type="relief">Warning</vs-button>
+            <vs-button color="dark" type="relief">Dark</vs-button>
+            <vs-button color="rgb(134, 4, 98)" type="relief">RGB</vs-button>
+            <vs-button disabled type="filled">Disabled</vs-button>
+            <vs-button color="primary" type="filled" to="/components/list.html">Router</vs-button>
+        </div>
+        <!-- <vs-button>Hello World</vs-button>
+        <vs-input vs-label="Enter only numbers" vs-placeholder="0123456789" v-model="value1" />
+        <br />
+        <vs-alert :active="inputValid" color="danger" icon="new_releases">
+            <span>the value is you can only enter numbers</span>
+        </vs-alert>
+
+        <br> -->
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="https://unpkg.com/vuesax"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data() {
+                return {
+                    value1: '',
+                }
+            },
+            computed: {
+                inputValid() {
+                    if (/^\d+$/.test(this.value1)) {
+                        return false
+                    } else {
+                        return true
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
